@@ -10,8 +10,65 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.washington.ischool.pjjj.dynasee.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:text="Choose your starting filter:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textSize="36sp"
+            android:textAlignment="center" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16sp" />
+
+        <Button
+            android:text="Cataracts"
+            android:layout_width="250sp"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_cataracts" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16sp" />
+
+        <Button
+            android:text="Colorblindness"
+            android:layout_width="250sp"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_color" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16sp" />
+
+        <Button
+            android:text="Glaucoma"
+            android:layout_width="250sp"
+            android:textSize="20sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_glaucoma" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16sp" />
+
+        <Button
+            android:text="Macular Degeneration"
+            android:layout_width="250sp"
+            android:textSize="16sp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_md" />
+
+    </LinearLayout>
 </RelativeLayout>
