@@ -5,20 +5,35 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+
+/*        import com.kongqw.bottomnavigationlib.KqwBottomNavigation;
+        import com.kongqw.bottomnavigationlib.OnBottomNavigationSelectedListener;
+        import com.kongqw.bottomnavigationlib.ToastUtil;
+
+ */
+
+public class MainActivity extends AppCompatActivity implements OnBottomNavigationSelectedListener {
+
+    private BottomNavigation mBottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final Button button = (Button) findViewById(R.id.button_cataracts);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, ViewActivity.class);
-                startActivity(i);
-            }
-        });
+
+        mBottomNavigation = (BottomNavigation) findViewById(R.id.activity_main);
+
+        mBottomNavigation.setBottomNavigationSelectedListener(this);
     }
+
+    @Override
+    public void onValueSelected(int index) {
+        ToastUtil.show(this, "index = " + index);
+    }
+
+//    public void rb1(View view){
+//        mKqwBottomNavigation.setBottomNavigationClick(1);
+//    }
 }

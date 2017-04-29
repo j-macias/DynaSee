@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:gravity="right"
+        android:layout_gravity="right"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selecter_bottom_navigation_button1"
+            android:gravity="center"
+            android:checked="true"
+            android:text="Sound"
+            android:textColor="@drawable/selecter_bottom_navigation_color" />
+
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/selecter_bottom_navigation_button2"
+            android:text="Photos"
+            android:textColor="@drawable/selecter_bottom_navigation_color" />
+
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selecter_bottom_navigation_button3"
+            android:gravity="center"
+            android:text="Filters"
+            android:textColor="@drawable/selecter_bottom_navigation_color" />
+
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/selecter_bottom_navigation_button4"
+            android:gravity="center"
+            android:text="Settings"
+            android:textColor="@drawable/selecter_bottom_navigation_color" />
+
+    </RadioGroup>
+
+</RelativeLayout>
