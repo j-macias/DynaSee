@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBottomNavigation = (BottomNavigation) findViewById(R.id.activity_main);
+        mBottomNavigation = (BottomNavigation) findViewById(R.id.kbn);
 
         mBottomNavigation.setBottomNavigationSelectedListener(this);
     }
