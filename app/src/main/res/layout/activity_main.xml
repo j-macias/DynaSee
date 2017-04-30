@@ -17,4 +17,9 @@
         android:layout_alignParentBottom="true">
     </edu.washington.ischool.pjjj.dynasee.BottomNavigation>
 
+    <FrameLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
 </RelativeLayout>
