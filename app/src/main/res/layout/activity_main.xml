@@ -9,6 +9,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.washington.ischool.pjjj.dynasee.MainActivity">
+
+
+
     <edu.washington.ischool.pjjj.dynasee.BottomNavigation
         android:layout_width="50dp"
         android:id="@+id/kbn"
@@ -17,11 +20,12 @@
         android:layout_alignParentBottom="true">
     </edu.washington.ischool.pjjj.dynasee.BottomNavigation>
 
+
     <FrameLayout
         android:id="@+id/camera_preview"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_toStartOf="@+id/kbn" >
+        android:layout_toStartOf="@+id/kbn">
 
     </FrameLayout>
 
