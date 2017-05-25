@@ -17,16 +17,43 @@
         android:id="@+id/kbn"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent">
     </edu.washington.ischool.pjjj.dynasee.BottomNavigation>
 
-
-    <FrameLayout
-        android:id="@+id/camera_preview"
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/kbn">
 
-    </FrameLayout>
+         <FrameLayout
+            android:id="@+id/camera_preview"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+             android:layout_weight="1.03">
 
+        </FrameLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/filter_menu"
+            android:layout_width="match_parent"
+            android:layout_height="50pt"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="bottom"
+            android:background="#AA444444">
+
+            <LinearLayout
+                android:id="@+id/id_filers_array"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal" />
+        </HorizontalScrollView>
+    </LinearLayout>>
 </RelativeLayout>

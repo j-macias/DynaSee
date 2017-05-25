@@ -1,5 +1,5 @@
 package edu.washington.ischool.pjjj.dynasee;
-
+import android.app.Activity;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,19 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.LayoutInflater;
+import android.view.Window;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.Toast;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+
+import android.app.Activity;
+
+
 
 import java.io.IOException;
 
@@ -27,6 +38,13 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
     private BottomNavigation mBottomNavigation;
     private Camera mCamera;
     private CameraPreview mPreview;
+
+    private LinearLayout filters_array;
+    private int[] filtersImg;
+    private LayoutInflater mInflater;
+    private String[] filtersText;
+    //private HorizontalScrollView filterMenu = (HorizontalScrollView) findViewById(R.id.filter_menu);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +60,14 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         } else {
             loadCameraView();
         }
+
+        mInflater = LayoutInflater.from(this);
+        initData();
+        initView();
+
+
     }
+
 
     private void loadCameraView() {
         mBottomNavigation = (BottomNavigation) findViewById(R.id.kbn);
@@ -88,8 +113,16 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
 
     @Override
     public void onValueSelected(int index) {
+
         ToastUtil.show(this, "index = " + index);
-    }
+        //if selected the filter buttoo
+        /*if(index == 2) {
+            filterMenu.setVisibility(filterMenu.GONE);
+
+            mBottomNavigation.setBottomNavigationClick(index);
+        }
+        */
+       }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -163,4 +196,41 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
             }
         }
     }
+
+    private void initData()
+    {
+        filtersImg = new int[] { R.drawable.a, R.drawable.b};
+        filtersText = new String[] {"Colorblindness", "Cataract"};
+    }
+
+    private void initView()
+    {
+        filters_array = (LinearLayout) findViewById(R.id.id_filers_array);
+
+        for (int i = 0; i < filtersImg.length; i++) {
+
+            View view = mInflater.inflate(R.layout.filter_item,
+                    filters_array, false);
+            LinearLayout item = (LinearLayout) view.findViewById(R.id.item);
+            ImageView img = (ImageView) view
+                    .findViewById(R.id.id_index_filter_item_image);
+            img.setImageResource(filtersImg[i]);
+
+            TextView txt = (TextView) view
+                    .findViewById(R.id.id_index_filter_item_text);
+            txt.setText(filtersText[i]);
+
+            filters_array.addView(view);
+
+
+        }
+    }
+
+
+
+
+
+
+
+
 }

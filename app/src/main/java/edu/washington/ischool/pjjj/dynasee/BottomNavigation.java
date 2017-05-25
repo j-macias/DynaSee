@@ -1,3 +1,4 @@
+
 package edu.washington.ischool.pjjj.dynasee;
 
 import android.widget.RelativeLayout;
@@ -12,26 +13,26 @@ import android.widget.RadioButton;
 
 public class BottomNavigation extends RelativeLayout {
 
-        protected OnBottomNavigationSelectedListener mSelectionListener;
-        private RadioButton mRadioButton1;
-        private RadioButton mRadioButton2;
-        private RadioButton mRadioButton3;
-        private RadioButton mRadioButton4;
+    protected OnBottomNavigationSelectedListener mSelectionListener;
+    private RadioButton mRadioButton1;
+    private RadioButton mRadioButton2;
+    private RadioButton mRadioButton3;
+    private RadioButton mRadioButton4;
 
-        public BottomNavigation(Context context) {
-            super(context);
-            initView(context);
-        }
+    public BottomNavigation(Context context) {
+        super(context);
+        initView(context);
+    }
 
-        public BottomNavigation(Context context, AttributeSet attrs) {
-            super(context, attrs);
-            initView(context);
-        }
+    public BottomNavigation(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        initView(context);
+    }
 
-        public BottomNavigation(Context context, AttributeSet attrs, int defStyleAttr) {
-            super(context, attrs, defStyleAttr);
-            initView(context);
-        }
+    public BottomNavigation(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initView(context);
+    }
 
     /**
      * 初始化页面
@@ -47,32 +48,32 @@ public class BottomNavigation extends RelativeLayout {
         mRadioButton1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSelectionListener.onValueSelected(1);
+                mSelectionListener.onValueSelected(0);
             }
         });
         mRadioButton2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSelectionListener.onValueSelected(2);
+                mSelectionListener.onValueSelected(1);
             }
         });
         mRadioButton3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSelectionListener.onValueSelected(3);
+                mSelectionListener.onValueSelected(2);
             }
         });
         mRadioButton4.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSelectionListener.onValueSelected(4);
+                mSelectionListener.onValueSelected(3);
             }
         });
     }
 
     public void setBottomNavigationSelectedListener(OnBottomNavigationSelectedListener l) {
         this.mSelectionListener = l;
-}
+    }
 
     public void setBottomNavigationClick(int index) {
         switch (index) {
@@ -95,6 +96,8 @@ public class BottomNavigation extends RelativeLayout {
         }
     }
 }
+
+
 
 
 
