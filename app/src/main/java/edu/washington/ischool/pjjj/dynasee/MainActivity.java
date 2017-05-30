@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
+import android.media.MediaPlayer;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
     private String[] filtersText;
     //private HorizontalScrollView filterMenu = (HorizontalScrollView) findViewById(R.id.filter_menu);
 
+    //sound
+    MediaPlayer ColorSound;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         mInflater = LayoutInflater.from(this);
         initData();
         initView();
+        ColorSound = MediaPlayer.create(this, R.raw.colorblindness);
 
 
     }
@@ -203,6 +208,8 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         filtersText = new String[] {"Colorblindness", "Cataract"};
     }
 
+
+    //intialize all the filters
     private void initView()
     {
         filters_array = (LinearLayout) findViewById(R.id.id_filers_array);
@@ -220,6 +227,8 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
                     .findViewById(R.id.id_index_filter_item_text);
             txt.setText(filtersText[i]);
 
+            int uniqueID = i;
+            img.setId(uniqueID);
             filters_array.addView(view);
 
 
@@ -227,7 +236,19 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
     }
 
 
-
+    //onclick
+    public void horizentalOnClick(View v) {
+        for(int i=0; i<filtersImg.length; i++) {
+            if(v.getId() == i) {
+                Toast.makeText(this, "Index "+(i), Toast.LENGTH_SHORT).show();
+                if(i == 0){
+                    ColorSound.start();
+                }else{
+                    ColorSound.stop();
+                }
+            }
+        }
+    }
 
 
 

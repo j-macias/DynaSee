@@ -16,6 +16,7 @@
             android:id="@+id/id_index_filter_item_image"
             android:layout_height="35pt"
             android:layout_width="match_parent"
+            android:onClick="horizentalOnClick"
             android:layout_gravity="top">
 
         </ImageView>
