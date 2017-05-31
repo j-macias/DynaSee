@@ -1,4 +1,5 @@
 package edu.washington.ischool.pjjj.dynasee;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.Manifest;
 import android.content.Context;
@@ -16,6 +17,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.Toast;
@@ -54,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         //Make permissions requests if needed
         int camPermissionCheck = ContextCompat.checkSelfPermission(this,
@@ -69,8 +72,6 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         initData();
         initView();
         ColorSound = MediaPlayer.create(this, R.raw.colorblindness);
-
-
     }
 
 
@@ -78,6 +79,17 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         mBottomNavigation = (BottomNavigation) findViewById(R.id.kbn);
         mBottomNavigation.setBottomNavigationSelectedListener(this);
         mCamera = getCameraInstance();
+
+        //check if device has continuous autofocus, and enable if so
+        /*
+        Camera.Parameters params = mCamera.getParameters();
+        if (params.getSupportedFocusModes().contains(
+                Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE)) {
+            params.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+        }
+        mCamera.setParameters(params);
+        */                                      //Proved to usually be a nuisance
+
         mPreview = new CameraPreview(this, mCamera);
         FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
         preview.addView(mPreview);
@@ -230,8 +242,6 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
             int uniqueID = i;
             img.setId(uniqueID);
             filters_array.addView(view);
-
-
         }
     }
 
@@ -249,9 +259,4 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
             }
         }
     }
-
-
-
-
-
 }

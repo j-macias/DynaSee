@@ -38,7 +38,31 @@
             android:layout_alignParentTop="true"
              android:layout_weight="1.03">
 
-        </FrameLayout>
+
+
+         </FrameLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.23"
+            android:id="@+id/seekContainer"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/seekCloseBtn"
+                android:layout_width="50dp"
+                android:layout_height="37dp"
+                android:text="X" />
+
+            <SeekBar
+                android:id="@+id/seekBar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
 
         <HorizontalScrollView
             android:id="@+id/filter_menu"
@@ -55,5 +79,8 @@
                 android:layout_gravity="center_vertical"
                 android:orientation="horizontal" />
         </HorizontalScrollView>
-    </LinearLayout>>
+
+    </LinearLayout>
+
+
 </RelativeLayout>

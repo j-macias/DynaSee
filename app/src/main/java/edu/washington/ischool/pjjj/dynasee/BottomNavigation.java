@@ -7,10 +7,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RadioButton;
 
-/**
- * Created by chelseagjw on 4/29/17.
- */
-
 public class BottomNavigation extends RelativeLayout {
 
     protected OnBottomNavigationSelectedListener mSelectionListener;
@@ -34,9 +30,7 @@ public class BottomNavigation extends RelativeLayout {
         initView(context);
     }
 
-    /**
-     * 初始化页面
-     */
+
     private void initView(Context context) {
 
         View view = View.inflate(getContext(), R.layout.bottom_navigation, this);
