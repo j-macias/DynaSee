@@ -13,12 +13,12 @@
 
 
     <edu.washington.ischool.pjjj.dynasee.BottomNavigation
-        android:layout_width="50dp"
+        android:layout_width="56dp"
         android:id="@+id/kbn"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent">
+        android:background= "#15273B">
     </edu.washington.ischool.pjjj.dynasee.BottomNavigation>
 
     <LinearLayout
@@ -46,7 +46,7 @@
             android:layout_height="50pt"
             android:layout_alignParentStart="true"
             android:layout_gravity="bottom"
-            android:background="#AA444444">
+            android:background="#62A8CF">
 
             <LinearLayout
                 android:id="@+id/id_filers_array"
