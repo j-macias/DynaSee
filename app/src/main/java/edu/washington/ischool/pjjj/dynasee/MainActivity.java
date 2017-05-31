@@ -19,7 +19,7 @@ import android.view.View;
 import android.view.LayoutInflater;
 import android.view.Window;
 import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
+import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,6 +27,8 @@ import android.widget.TextView;
 import android.util.TypedValue;
 import java.util.HashMap;
 import android.media.AudioManager;
+import android.net.Uri;
+
 
 
 import android.app.Activity;
@@ -51,16 +53,17 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
     private int[] filtersImg;
     private LayoutInflater mInflater;
     private String[] filtersText;
+    private String url;
     //private HorizontalScrollView filterMenu = (HorizontalScrollView) findViewById(R.id.filter_menu);
 
+   public Button infoBtn;
     //sound
     MediaPlayer mp;
     MediaPlayer mdSound;
     MediaPlayer meSound;
 
 
-    SoundPool mSoundPool;
-    HashMap<Integer, Integer> mHashMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +90,9 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         //colorSound = MediaPlayer.create(this, R.raw.colorblindness);
         meSound = MediaPlayer.create(this, R.raw.macularedema);
         mdSound = MediaPlayer.create(this, R.raw.maculardegeneration);
+
+        infoBtn = (Button) findViewById(R.id.info);
+        infoBtn.setText("info");
 
 
 
@@ -137,8 +143,13 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
 
     @Override
     public void onValueSelected(int index) {
-
-        ToastUtil.show(this, "index = " + index);
+        String text = null;
+        if( index == 0){
+            text = "Turn off the sound";
+        }else if(index == 1){
+            text = "Import pictures from library";
+        }
+        ToastUtil.show(this, "index = " + index + " "+ text );
         //if selected the filter buttoo
         /*if(index == 2) {
             filterMenu.setVisibility(filterMenu.GONE);
@@ -262,7 +273,9 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
     public void horizentalOnClick(View v) {
         for(int i=0; i<filtersImg.length; i++) {
             if(v.getId() == i) {
-                Toast.makeText(this, "Index "+(i), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Index "+(i) +" "+filtersText[i], Toast.LENGTH_SHORT).show();
+                infoBtn.setText(filtersText[i]);
+                url= "https://en.wikipedia.org/wiki/" + filtersText[i] ;
                 v.setBackgroundColor(Color.parseColor("#62A8CF"));
                 if(i == 0){
                     if(mdSound.isPlaying()) {
@@ -290,6 +303,13 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         }
     }
 
+    //connect to the website
+    public void infoClick(View v) {
+        Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
+        openURL.setData(Uri.parse(url));
+        startActivity(openURL);
+
+    }
 
 
 
