@@ -4,13 +4,13 @@
     android:layout_width="50pt"
     android:layout_height="match_parent"
     android:layout_gravity="bottom"
-    android:background="@color/colorAccent">
+    android:background="#62A8CF">
 
     <LinearLayout
         android:id="@+id/item"
         android:layout_height="50pt"
         android:layout_width="50pt"
-        android:background="@color/colorPrimary"
+        android:background="#62A8CF"
         android:orientation="vertical">
         <ImageView
             android:id="@+id/id_index_filter_item_image"

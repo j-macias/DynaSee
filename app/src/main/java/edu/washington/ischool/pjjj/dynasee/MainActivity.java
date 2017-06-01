@@ -5,8 +5,10 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.hardware.Camera;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,11 +21,16 @@ import android.view.LayoutInflater;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
+import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.util.TypedValue;
+import java.util.HashMap;
+import android.media.AudioManager;
+import android.net.Uri;
+
 
 
 import android.app.Activity;
@@ -42,14 +49,22 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
     private Camera mCamera;
     private CameraPreview mPreview;
 
+    private boolean clickFiltersMenu = false;
+
     private LinearLayout filters_array;
     private int[] filtersImg;
     private LayoutInflater mInflater;
     private String[] filtersText;
+    private String url;
     //private HorizontalScrollView filterMenu = (HorizontalScrollView) findViewById(R.id.filter_menu);
 
+   public Button infoBtn;
     //sound
-    MediaPlayer ColorSound;
+    MediaPlayer mp;
+    MediaPlayer mdSound;
+    MediaPlayer meSound;
+
+
 
 
     @Override
@@ -57,6 +72,8 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+
 
         //Make permissions requests if needed
         int camPermissionCheck = ContextCompat.checkSelfPermission(this,
@@ -71,7 +88,13 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
         mInflater = LayoutInflater.from(this);
         initData();
         initView();
-        ColorSound = MediaPlayer.create(this, R.raw.colorblindness);
+
+        //colorSound = MediaPlayer.create(this, R.raw.colorblindness);
+        meSound = MediaPlayer.create(this, R.raw.macularedema);
+        mdSound = MediaPlayer.create(this, R.raw.maculardegeneration);
+
+        infoBtn = (Button) findViewById(R.id.info);
+        infoBtn.setText("info");
     }
 
 
@@ -130,8 +153,13 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
 
     @Override
     public void onValueSelected(int index) {
-
-        ToastUtil.show(this, "index = " + index);
+        String text = null;
+        if( index == 0){
+            text = "Turn off the sound";
+        }else if(index == 1){
+            text = "Import pictures from library";
+        }
+        ToastUtil.show(this, "index = " + index + " "+ text );
         //if selected the filter buttoo
         /*if(index == 2) {
             filterMenu.setVisibility(filterMenu.GONE);
@@ -216,8 +244,8 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
 
     private void initData()
     {
-        filtersImg = new int[] { R.drawable.a, R.drawable.b};
-        filtersText = new String[] {"Colorblindness", "Cataract"};
+        filtersImg = new int[] { R.drawable.a, R.drawable.b, R.drawable.c,R.drawable.d,R.drawable.e};
+        filtersText = new String[] {"Colorblindness", "Cataract","Glaucoma", "Macular Edema", "Macular Degeneration"};
     }
 
 
@@ -237,6 +265,9 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
 
             TextView txt = (TextView) view
                     .findViewById(R.id.id_index_filter_item_text);
+            if(i == 3 || i == 4){
+                txt.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
+            }
             txt.setText(filtersText[i]);
 
             int uniqueID = i;
@@ -250,13 +281,42 @@ public class MainActivity extends AppCompatActivity implements OnBottomNavigatio
     public void horizentalOnClick(View v) {
         for(int i=0; i<filtersImg.length; i++) {
             if(v.getId() == i) {
-                Toast.makeText(this, "Index "+(i), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Index "+(i) +" "+filtersText[i], Toast.LENGTH_SHORT).show();
+                infoBtn.setText(filtersText[i]);
+                url= "https://en.wikipedia.org/wiki/" + filtersText[i] ;
+                v.setBackgroundColor(Color.parseColor("#62A8CF"));
                 if(i == 0){
-                    ColorSound.start();
-                }else{
-                    ColorSound.stop();
+                    if(mdSound.isPlaying()) {
+                        mdSound.stop();
+                    }
+                    if (meSound.isPlaying()){
+                        meSound.stop();
+                    }
+                    mp = MediaPlayer.create(this, R.raw.colorblindness);
+                    mp.start();
+                }else if (i == 3){
+                    if(mdSound.isPlaying()) {
+                        mdSound.stop();
+                    }
+                    meSound.start();
+                }else if(i == 4){
+                    if(meSound.isPlaying()) {
+                        meSound.stop();
+                    }
+
+                    mdSound = MediaPlayer.create(this, R.raw.maculardegeneration);
+                    mdSound.start();
                 }
             }
         }
     }
+
+    //connect to the website
+    public void infoClick(View v) {
+        Intent openURL = new Intent(android.content.Intent.ACTION_VIEW);
+        openURL.setData(Uri.parse(url));
+        startActivity(openURL);
+
+    }
+
 }
