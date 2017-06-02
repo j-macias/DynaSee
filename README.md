@@ -20,7 +20,7 @@ Every day, most of us take our ability to see the world around us for granted. A
 
 **Intensity adjustment**: A slider that will be implemented to change the intensity of the particular disorder
 
-## Summary of the major technology decisions
+## Summary of Technology Decisions
 
 
 
