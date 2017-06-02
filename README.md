@@ -25,6 +25,7 @@ Every day, most of us take our ability to see the world around us for granted. A
 
 Our final decision to use Android as our platform, while more difficult in some ways, proved to be out best option due to our team’s prior knowledge and available development environments. The documentation surrounding Android is plentiful, and often has more support from the open-source community than iOS. This also allowed us to implement OpenCV for handling the image filters, however this decision was made late enough in the project that we were unable to get it working in time. Dealing with images and image processing on Android is indeed very tricky largely due to resource constraints placed upon mobile devices. While we we also did not implement Google Cardboard functionality due to time and only having one camera on most mobile devices, it is something we would like to pursue in the future.
 
+## Mockup
 ![Poster](https://github.com/j-macias/DynaSee/blob/master/sample.png)
 
 ## Contact Information
