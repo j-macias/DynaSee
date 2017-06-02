@@ -24,6 +24,10 @@ Every day, most of us take our ability to see the world around us for granted. A
 ## Contact Information
 * Designer/Developer：Jingwen Guo  jingwg@uw.edu
 * Designer/Researcher：Jessie Zhang  jessielz@uw.edu
+* Lead Developer：Jordan Macias  jmacias@uw.edu 
+* Project Manager：Parker Duvall  duvallp@uw.edu 
+
+
 
 
 
