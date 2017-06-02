@@ -8,7 +8,7 @@ Every day, most of us take our ability to see the world around us for granted. A
 
 ## List of Contents 
 > 
-CameraView: The Camera view shows the current scene as seen from the currently active filter’s view point. It can be activated automatically. This feature is not currently completed
+|**CameraView**|: The Camera view shows the current scene as seen from the currently active filter’s view point. It can be activated automatically. This feature is not currently completed
 
 Import Photos: The user is able to import their own photo from their phone and apply a filter to it. This feature is not currently completed yet.
 
