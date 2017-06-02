@@ -9,11 +9,16 @@ Every day, most of us take our ability to see the world around us for granted. A
 ## List of Contents 
 > 
 CameraView: The Camera view shows the current scene as seen from the currently active filter’s view point. It can be activated automatically. This feature is not currently completed
-    * Import Photos: The user is able to import their own photo from their phone and apply a filter to it. This feature is not currently completed yet.
-    * Background Sound: Interviews of individuals with the disorders that can be listened to while looking through their eyes. Activate by clicking on the filter. This feature is not final in it’s current state.
-    * Links to more information: When you click on the name of the disorder on the top of the screen when you have a filter selected, it will link you to more information about the disorder.
-    * Mockup Filters: There are 5 different eye disorder filter(Color Blindness, Cataract ,Glaucoma, Macular Edema, Macular Degeneration ). When you apply them, you will see what that patient’s view looks like. 
-    * Intensity adjustment: A slider that will be implemented to change the intensity of the particular disorder
+
+Import Photos: The user is able to import their own photo from their phone and apply a filter to it. This feature is not currently completed yet.
+
+Background Sound: Interviews of individuals with the disorders that can be listened to while looking through their eyes. Activate by clicking on the filter. This feature is not final in it’s current state.
+
+Links to more information: When you click on the name of the disorder on the top of the screen when you have a filter selected, it will link you to more information about the disorder.
+
+Mockup Filters: There are 5 different eye disorder filter(Color Blindness, Cataract ,Glaucoma, Macular Edema, Macular Degeneration ). When you apply them, you will see what that patient’s view looks like. 
+
+Intensity adjustment: A slider that will be implemented to change the intensity of the particular disorder
 
 ## Summary of the major technology decisions
 
