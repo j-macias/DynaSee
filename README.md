@@ -15,5 +15,16 @@ Every day, most of us take our ability to see the world around us for granted. A
     * Mockup Filters: There are 5 different eye disorder filter(Color Blindness, Cataract ,Glaucoma, Macular Edema, Macular Degeneration ). When you apply them, you will see what that patient’s view looks like. 
     * Intensity adjustment: A slider that will be implemented to change the intensity of the particular disorder
 
+## Summary of the major technology decisions
+
+
+
+
+
+## Contact Information
+Jingwen Guo: Designer/Developer jingwg@uw.edu
+Jessie Zhang: Designer/Researcher jessielz@uw.edu
+Jordan Macias: Lead Developer
+Parker Duvall: Project Manager duvallp@uw.edu 
 
 
